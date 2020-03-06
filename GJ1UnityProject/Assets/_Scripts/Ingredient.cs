@@ -7,8 +7,11 @@ public class Ingredient : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-        IngredientText.ingredientAmount += 1;
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            IngredientText.ingredientAmount += 1;
+        }
     }
     // Start is called before the first frame update
     void Start()
