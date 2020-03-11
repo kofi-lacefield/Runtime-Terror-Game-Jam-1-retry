@@ -5,16 +5,17 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public bool switchDir = false;
-    public float movementSpeed = 1f;
+    public float movementSpeed;
     GameObject player;
     //CircleCollider2D collider2D;
-    UIScript uiScript;
+    public UIScript uiScript;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         //collider2D = getComponent<CircleCollider2D>();
-        uiScript = GameObject.FindWithTag("GameController").GetComponent<UIScript>();
+        //uiScript = GameObject.FindWithTag("GameController").GetComponent<UIScript>();
+        movementSpeed = uiScript.enemySpeed;
     }
 
     // Update is called once per frame
