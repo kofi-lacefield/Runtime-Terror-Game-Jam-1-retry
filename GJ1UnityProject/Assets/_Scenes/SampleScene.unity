@@ -52183,7 +52183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NotCursed: {fileID: 21300000, guid: 86ce912717672b8429c58e6960c12e25, type: 3}
-  numRequiredIngred: 1
+  numRequiredIngred: 2
 --- !u!61 &1190748321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58402,7 +58402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Game Timer: '
+  m_Text: 'Curse Timer: '
 --- !u!222 &2014080881
 CanvasRenderer:
   m_ObjectHideFlags: 0
