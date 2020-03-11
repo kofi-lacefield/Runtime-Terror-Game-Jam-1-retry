@@ -16,17 +16,11 @@ public class UIScript : MonoBehaviour
     public Sprite emptyHeart;
     public GameObject Level0Menu;
     public GameObject levelGUI;
-
-    //public hat hatScript;
-    //public Pumpkin pumpkinScript;
-    //public Candle candleScript;
-    //public Bat batScript;
     public GameObject hat;
     public GameObject pumpkin;
     public GameObject candle;
     public GameObject bat;
-    //public Vector3[] spawnLocations;
-    Vector3[] spawnLocations = new Vector3[8];// {new Vector3(46f, -12f, 0f), new Vector3(46f, -1f, 0f), new Vector3(40f, 11f, 0f), new Vector3(22f, -21f, 0f), new Vector3(46f, -12f, 0f), new Vector3(17f, 21f, 0f),  new Vector3(54f, -21f, 0f), new Vector3(27f, -1f, 0f)};
+    Vector3[] spawnLocations = new Vector3[8];
     public float enemySpeed = 0.5f;
     bool win = false;
     bool lose = false;
@@ -34,19 +28,21 @@ public class UIScript : MonoBehaviour
     public GameObject loseText;
     GameObject[] uiImages;
     GameObject[] uiText;
-    //bool set = false;
     bool newLvl = true;
     public int witchAmount = 0;
     public int pumpkinAmount = 0;
     public int candleAmount = 0;
     public int batAmount = 0;
+    Text levelObj;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        //Level0Menu.SetActive(true);
-        //levelGUI.SetActive(true);
-        //winText.SetActive(true);
+        Level0Menu.SetActive(true);
+        levelGUI.SetActive(true);
+        winText.SetActive(true);
         timerObj = GameObject.Find("Game Timer").GetComponent<Text>();
+        levelObj = GameObject.Find("Level Text").GetComponent<Text>();
         heart1 = GameObject.Find("Heart1").GetComponent<Image>();
         heart2 = GameObject.Find("Heart2").GetComponent<Image>();
         heart3 = GameObject.Find("Heart3").GetComponent<Image>();
@@ -60,6 +56,7 @@ public class UIScript : MonoBehaviour
         spawnLocations[7] = new Vector3(27f, -1f, 0f);
         uiImages = GameObject.FindGameObjectsWithTag("UI_Image");
         uiText = GameObject.FindGameObjectsWithTag("UI_Text");
+        player = GameObject.FindGameObjectWithTag("Player");
         for (int i = 0; i < uiImages.Length; i++)
         {
             GameObject temp = uiImages[i];
@@ -82,6 +79,7 @@ public class UIScript : MonoBehaviour
     void Update()
     {
         timerObj.text = "Game Timer: " + timer;
+        levelObj.text = "Level: " + level;
         if (lives == 3)
         {
             heart1.sprite = fullHeart;
@@ -228,6 +226,7 @@ public class UIScript : MonoBehaviour
         level++;
         newLvl = true;
         StartCoroutine(timerMethod());
+        player.GetComponent<Transform>().position = new Vector3(-23f, 1f, 0f);
     }
 
     public void loseGame()

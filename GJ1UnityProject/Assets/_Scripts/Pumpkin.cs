@@ -7,8 +7,10 @@ public class Pumpkin : MonoBehaviour
 {
     //Image BWPumpkin;
     public Sprite PumpkinColor;
+    public Sprite BW;
     public int PumpkinAmount;
     public UIScript uIScript;
+    public bool ui;
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             uIScript.pumpkinAmount += 1;
@@ -17,6 +19,10 @@ public class Pumpkin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ui)
+        {
+            gameObject.GetComponent<Image>().sprite = BW;
+        }
         //BWPumpkin = GameObject.GetComponent<Image>();
     }
 
@@ -25,6 +31,11 @@ public class Pumpkin : MonoBehaviour
     {
         if (uIScript.pumpkinAmount == 1) {
             gameObject.GetComponent<Image>().sprite = PumpkinColor;
+        } else {
+            if (ui)
+            {
+                gameObject.GetComponent<Image>().sprite = BW;
+            }
         }
     }
 }
