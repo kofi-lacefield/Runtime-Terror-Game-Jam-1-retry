@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Ingredient
+  - UI_Image
+  - UI_Text
   layers:
   - Default
   - TransparentFX

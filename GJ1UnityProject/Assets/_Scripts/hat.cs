@@ -5,30 +5,29 @@ using UnityEngine.UI;
 
 public class hat : MonoBehaviour
 {
-    Image BWWitchHat;
+    //Image BWWitchHat;
     public Sprite WitchColor;
-    public static int WitchAmount;
+    public int WitchAmount;
+    public UIScript uIScript;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-           
-            WitchAmount += 1;
+            uIScript.witchAmount += 1;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        BWWitchHat = GameObject.Find("BWWitchHat").GetComponent<Image>();
+        //BWWitchHat = GameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (WitchAmount == 1) {
-            BWWitchHat.sprite = WitchColor;
-
+        if (uIScript.witchAmount == 1) {
+            gameObject.GetComponent<Image>().sprite = WitchColor;
         }
     }
 }

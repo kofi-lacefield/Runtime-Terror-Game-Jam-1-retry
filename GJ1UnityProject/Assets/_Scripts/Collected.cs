@@ -14,7 +14,6 @@ public class Collected : MonoBehaviour
         if(instance = null)
         {
             instance = this;
-
         }
     }
 

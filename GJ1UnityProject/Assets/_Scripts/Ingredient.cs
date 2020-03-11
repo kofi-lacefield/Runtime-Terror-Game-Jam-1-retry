@@ -9,7 +9,7 @@ public class Ingredient : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             IngredientText.ingredientAmount += 1;
         }
     }
