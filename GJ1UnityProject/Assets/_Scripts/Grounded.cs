@@ -11,11 +11,6 @@ public class Grounded : MonoBehaviour
         Player = gameObject.transform.parent.gameObject;
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ground")

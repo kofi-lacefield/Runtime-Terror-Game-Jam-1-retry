@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class LiftSpriteCurse : MonoBehaviour
 {
-    public Sprite NotCursed;
-    public int numRequiredIngred = 1; // test amt = 1 (will change later)
+    [SerializeField] private Animator myAnimationController;
+
+    public UIScript canvasObj;
 
     void Update()
     {
         
-        if (IngredientText.ingredientAmount == numRequiredIngred)
+        if (canvasObj.level == 1)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = NotCursed;
+            myAnimationController.SetBool("isLevel1", true);
+        }
+        if (canvasObj.level == 2)
+        {
+            myAnimationController.SetBool("isLevel1", false);
+
+            myAnimationController.SetBool("isLevel2", true);
+        }
+        if (canvasObj.level == 3)
+        {
+            myAnimationController.SetBool("isLevel2", false);
+
+            myAnimationController.SetBool("isLevel3", true);
         }
     }
 }
