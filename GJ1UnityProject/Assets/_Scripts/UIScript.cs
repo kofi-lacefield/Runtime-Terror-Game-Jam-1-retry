@@ -35,6 +35,7 @@ public class UIScript : MonoBehaviour
     public int batAmount = 0;
     Text levelObj;
     GameObject player;
+    int replay;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +79,6 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(level);
         timerObj.text = "Game Timer: " + timer;
         levelObj.text = "Level: " + level;
         if (lives == 3)
@@ -184,7 +184,7 @@ public class UIScript : MonoBehaviour
 
     IEnumerator timerMethod()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f * replay);
         timer -= 1;
         StartCoroutine(timerMethod());
     }
@@ -224,6 +224,10 @@ public class UIScript : MonoBehaviour
         candle.SetActive(true);
         bat.SetActive(true);
 
+        if (level == 0)
+        {
+            replay++;
+        }
         timer = 120;
         level++;
         newLvl = true;
