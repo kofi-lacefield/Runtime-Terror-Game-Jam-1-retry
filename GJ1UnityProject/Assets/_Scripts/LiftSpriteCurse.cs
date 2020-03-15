@@ -13,17 +13,22 @@ public class LiftSpriteCurse : MonoBehaviour
         
         if (canvasObj.level == 1)
         {
+            myAnimationController.SetBool("isLevel2", false);
+            myAnimationController.SetBool("isLevel3", false);
+
             myAnimationController.SetBool("isLevel1", true);
         }
         if (canvasObj.level == 2)
         {
             myAnimationController.SetBool("isLevel1", false);
+            myAnimationController.SetBool("isLevel3", false);
 
             myAnimationController.SetBool("isLevel2", true);
         }
         if (canvasObj.level == 3)
         {
             myAnimationController.SetBool("isLevel2", false);
+            myAnimationController.SetBool("isLevel1", false);
 
             myAnimationController.SetBool("isLevel3", true);
         }
