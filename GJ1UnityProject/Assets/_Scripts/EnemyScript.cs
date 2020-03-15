@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    private SpriteRenderer mySpriteRenderer;
+
     public bool switchDir = false;
+
     public float movementSpeed;
     GameObject player;
     //CircleCollider2D collider2D;
@@ -31,9 +34,15 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator turn()
     {
+        // switch sprite direction
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
         float pastMovementSpeed = movementSpeed;
         movementSpeed = 0f;
         yield return new WaitForSeconds(1f);
+
+        mySpriteRenderer.flipX = !mySpriteRenderer.flipX;
+
         movementSpeed = -pastMovementSpeed;
         switchDir = false;
     }
