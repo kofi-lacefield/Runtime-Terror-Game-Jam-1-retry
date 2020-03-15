@@ -78,6 +78,7 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(level);
         timerObj.text = "Game Timer: " + timer;
         levelObj.text = "Level: " + level;
         if (lives == 3)
@@ -111,6 +112,7 @@ public class UIScript : MonoBehaviour
             {
                 StopCoroutine(timerMethod());
                 enemySpeed = 0.5f;
+                lives = 3;
                 Level0Menu.SetActive(true);
                 levelGUI.SetActive(true);
                 if (win)
